@@ -27,7 +27,7 @@ ADD https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar lib/
 RUN chmod +x $CATALINA_HOME/bin/catalina.sh
 
 # Expose the default Tomcat port
-EXPOSE 80
+EXPOSE 8081
 
 # Set the command to start Tomcat
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
