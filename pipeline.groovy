@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Pull') { 
             steps {
-                git clone 'https://github.com/Prajwal2023/dockpipe-1.git'
+                git branch: 'main', url: 'https://github.com/anurag-sd/dockpipe-1.git'
             }
         }
        
