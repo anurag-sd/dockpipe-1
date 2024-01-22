@@ -15,10 +15,10 @@ RUN yum -y update && \
 RUN yum -y install unzip
 
 # Download and extract Tomcat
-RUN wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.93/bin/apache-tomcat-8.5.93.zip && \
-    unzip apache-tomcat-8.5.93.zip -d /opt && \
-    rm apache-tomcat-8.5.93.zip && \
-    mv /opt/apache-tomcat-8.5.93 $CATALINA_HOME
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.85/bin/apache-tomcat-9.0.85.zip && \
+    unzip apache-tomcat-9.0.85.zip -d /opt && \
+    rm apache-tomcat-9.0.85 && \
+    mv /opt/apache-tomcat-9.0.85 $CATALINA_HOME
 WORKDIR /opt/tomcat
 ADD https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war webapps/
 ADD https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar lib/
