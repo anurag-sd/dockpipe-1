@@ -9,13 +9,7 @@ pipeline {
        
         stage('Build Docker Image') {
             steps {
-                script {
-                    def dockerImage = docker.build(
-                        context: '.',
-                        dockerfile: '/home/ubuntu/Dockerfile',
-                        tags: "testapp:${env.BUILD_ID}"
-                    )
-                }
+               sh 'docker build . -t studentapp'
             }
         }
 
@@ -25,15 +19,11 @@ pipeline {
             }
         }
 
-        stage('Deploy on Same Instance') {
+        stage('Deploy') {
             steps {
-                script {
-                    sh "docker stop testapp || true"  // Stop existing container if exists
-                    sh "docker rm testapp || true"    // Remove existing container if exists
-
-                    sh "docker run -d -p 8080:80 --testapp testapp:${env.BUILD_ID}"
+               sh "docker run -d -p 8080:80 --studentapp"
                 }
             }
         }
     }
-}
+
