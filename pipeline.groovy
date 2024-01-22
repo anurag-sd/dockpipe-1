@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Pull') { 
             steps {
-                git 'https://github.com/Prajwal2023/dockpipe-1.git'
+                git clone 'https://github.com/Prajwal2023/dockpipe-1.git'
             }
         }
        
